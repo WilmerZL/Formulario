@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etCedula, etNombres, etFechaNacimiento, etCiudad, etCorreo, etTelefono;
+    private EditText etNombres, etApellidos, etFechaNacimiento, etEmpresa, etCorreo, etTelefono;
     private RadioGroup rgGenero;
     private Button btnEnviar, btnLimpiar;
 
@@ -26,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Referencias a los controles
-        etCedula = findViewById(R.id.etCedula);
         etNombres = findViewById(R.id.etNombres);
+        etApellidos = findViewById(R.id.etApellidos);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
-        etCiudad = findViewById(R.id.etCiudad);
+        etEmpresa = findViewById(R.id.etEmpresa);
         etCorreo = findViewById(R.id.etCorreo);
         etTelefono = findViewById(R.id.etTelefono);
         rgGenero = findViewById(R.id.rgGenero);
@@ -40,20 +39,20 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(v -> {
             if (validarFormulario()) {
                 // Obtener datos
-                String cedula = etCedula.getText().toString();
-                String nombres = etNombres.getText().toString().toUpperCase();
+                String cedula = etNombres.getText().toString();
+                String apellido = etApellidos.getText().toString().toUpperCase();
                 String fechaNacimiento = etFechaNacimiento.getText().toString();
-                String ciudad = etCiudad.getText().toString().toUpperCase();
+                String empresa = etEmpresa.getText().toString().toUpperCase();
                 String genero = ((RadioButton) findViewById(rgGenero.getCheckedRadioButtonId())).getText().toString();
                 String correo = etCorreo.getText().toString();
                 String telefono = etTelefono.getText().toString();
 
                 // Pasar datos a ResultActivity
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                intent.putExtra("cedula", cedula);
-                intent.putExtra("nombres", nombres);
+                intent.putExtra("nombres", cedula);
+                intent.putExtra("apellidos", apellido);
                 intent.putExtra("fechaNacimiento", fechaNacimiento);
-                intent.putExtra("ciudad", ciudad);
+                intent.putExtra("empresa", empresa);
                 intent.putExtra("genero", genero);
                 intent.putExtra("correo", correo);
                 intent.putExtra("telefono", telefono);
@@ -67,20 +66,20 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean validarFormulario() {
         // Validar campos
-        if (etCedula.getText().toString().length() != 10 || !TextUtils.isDigitsOnly(etCedula.getText())) {
-            etCedula.setError("Ingrese un número de cédula válido de 10 dígitos");
-            return false;
-        }
         if (TextUtils.isEmpty(etNombres.getText()) || etNombres.getText().toString().length() > 500) {
             etNombres.setError("Ingrese un nombre válido (máx. 500 caracteres)");
+            return false;
+        }
+        if (TextUtils.isEmpty(etApellidos.getText()) || etApellidos.getText().toString().length() > 500) {
+            etApellidos.setError("Ingrese un apellido válido (máx. 500 caracteres)");
             return false;
         }
         if (TextUtils.isEmpty(etFechaNacimiento.getText())) {
             etFechaNacimiento.setError("Ingrese una fecha válida");
             return false;
         }
-        if (TextUtils.isEmpty(etCiudad.getText()) || etCiudad.getText().toString().length() > 200) {
-            etCiudad.setError("Ingrese una ciudad válida (máx. 200 caracteres)");
+        if (TextUtils.isEmpty(etEmpresa.getText()) || etEmpresa.getText().toString().length() > 200) {
+            etEmpresa.setError("Ingrese una ciudad válida (máx. 200 caracteres)");
             return false;
         }
         if (rgGenero.getCheckedRadioButtonId() == -1) {
@@ -99,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void limpiarFormulario() {
-        etCedula.setText("");
         etNombres.setText("");
+        etApellidos.setText("");
         etFechaNacimiento.setText("");
-        etCiudad.setText("");
+        etEmpresa.setText("");
         rgGenero.clearCheck();
         etCorreo.setText("");
         etTelefono.setText("");

@@ -12,10 +12,10 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         // Obtener referencias a los TextView
-        TextView tvCedula = findViewById(R.id.tvCedula);
         TextView tvNombres = findViewById(R.id.tvNombres);
+        TextView tvApellidos = findViewById(R.id.tvApellidos);
         TextView tvFechaNacimiento = findViewById(R.id.tvFechaNacimiento);
-        TextView tvCiudad = findViewById(R.id.tvCiudad);
+        TextView tvEmpresa = findViewById(R.id.tvEmpresa);
         TextView tvGenero = findViewById(R.id.tvGenero);
         TextView tvCorreo = findViewById(R.id.tvCorreo);
         TextView tvTelefono = findViewById(R.id.tvTelefono);
@@ -23,10 +23,10 @@ public class ResultActivity extends AppCompatActivity {
         // Obtener datos del Intent
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            tvCedula.setText("Cédula: " + extras.getString("cedula"));
-            tvNombres.setText("Nombres: " + extras.getString("nombres"));
+            tvNombres.setText("Nombre: " + extras.getString("nombres"));
+            tvApellidos.setText("Apellido: " + extras.getString("apellidos"));
             tvFechaNacimiento.setText("Fecha de Nacimiento: " + extras.getString("fechaNacimiento"));
-            tvCiudad.setText("Ciudad: " + extras.getString("ciudad"));
+            tvEmpresa.setText("Empresa: " + extras.getString("empresa"));
             tvGenero.setText("Género: " + extras.getString("genero"));
             tvCorreo.setText("Correo: " + extras.getString("correo"));
             tvTelefono.setText("Teléfono: " + extras.getString("telefono"));

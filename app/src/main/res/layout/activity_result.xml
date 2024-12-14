@@ -24,7 +24,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvCedula"
+        android:id="@+id/tvNombres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cédula: "
@@ -32,7 +32,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvNombres"
+        android:id="@+id/tvApellidos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nombres: "
@@ -49,10 +49,10 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvCiudad"
+        android:id="@+id/tvEmpresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ciudad: "
+        android:text="Empresa: "
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BIENVENIDOS A LA UTEQ"
+        android:text="BIENVENIDOS "
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="48sp"
