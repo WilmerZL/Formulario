@@ -2,8 +2,7 @@
 
 <p align="center">
     <!-- Primera imagen al 50% -->
-    <img src="https://github.com/user-attachments/assets/77326182-ff91-4bcb-a221-bd327bf154d6" alt="Screenshot 1" width="25%">
-    <img src="https://github.com/user-attachments/assets/e878856e-dff3-4181-99ea-0478317a70e5" alt="Screenshot 2" width="25%">
+    <img src="https://github.com/user-attachments/assets/361a0846-917f-4a38-b098-bd6b6f83eb66" alt="Screenshot 1" width="25%">
+    <img src="https://github.com/user-attachments/assets/6864d282-8560-42e5-a4d1-740b44fe4c1c" alt="Screenshot 2" width="25%">
     
-
 
